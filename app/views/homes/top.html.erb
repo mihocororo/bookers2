@@ -1,0 +1,45 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<% if user_signed_in? %>
+  <h1>User info</h1>
+  
+  
+  
+  
+
+  
+
+
+<% else %>
+
+
+
+
+
+
+
+<div class= "top">
+  <ul>
+  <h1>welcome to Bookers !!</h1>
+  
+  <li>In Bookers,</br>
+
+    you can share and exchange your opinions , inpressions , and emotions</br>
+
+    about various books!</li></ul>
+</div>
+<div class="button">
+<div class="d-grid gap-2 col-6 mx-auto">
+  <%= link_to("users/sign_in") do %>
+  <button class="btn btn-primary w-75" type="button">Log In</button>
+  <% end %>
+  <%= link_to("users/sign_up") do %>
+  <button class="btn btn-success w-75" type="button">Sign Up</button>
+  <% end %>
+</div>
+</div>
+  
+<div class="inc">
+  <li>CopyRight Infratop.inc</li>
+</div>
+<% end %>

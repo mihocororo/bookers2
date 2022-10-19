@@ -1,3 +1,57 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+
+ html{
+  margin:auto;
+ }
+
+ .top{
+  padding:10px;
+  margin-top:30px;
+  text-align:center;
+  display:block;
+
+ }
+ 
+ .about{
+  margin:30px;
+  text-align:center;
+  padding-bottom:30px;
+ }
+ 
+ 
+
+ .top ul{
+  padding-left:0;
+  display:inline-block;
+ }
+
+ .top ul li{
+  text-align :left;
+ }
+
+ .button{
+  text-align :center;
+ }
+
+ .inc{
+  text-align:center;
+  margin:30px;
+ }
+
+ li{
+  list-style:none;
+ }
+ 
+ .about2{
+  text-align:center;
+ }
+ 
+ .btn_hover:hover{
+    background-color:gainsboro;
+}

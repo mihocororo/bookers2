@@ -1,0 +1,16 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<div class="container">
+    <div class="col-md-3">
+        <h1>User info</h1>
+    <%= form_with model: @user, url: user_session_path do |f| %>
+
+        <h3>name</h3>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        <h3>image</h3>
+    <%= f.file_field :profile_image, autofocus: true, autocomplete: "profile_image" %>
+         <h3>introduction</h3>
+    <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %></br>
+    <%= f.submit 'Update User' %>
+    </div>
+</div>
+    <% end %>

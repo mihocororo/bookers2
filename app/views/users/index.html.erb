@@ -1,0 +1,103 @@
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+ <!DOCTYPE html>
+<html>
+ <% if user_signed_in? %>
+
+    <script src="https://kit.fontawesome.com/f1fbe89ccf.js" crossorigin="anonymous"></script>
+  <div class="container">
+    <div class="col-md-3">
+
+
+<h1></h1>
+    <h2>User info</h2>
+
+
+    <% if @user.profile_image.attached? %>
+    <%= image_tag @user.profile_image,size:"100x100" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "100x100" %>
+  <% end %>
+
+
+
+    <table class="table2">
+
+    <tr>
+      <th>name</th>
+      <td><%= @user.name %></td>
+    </tr>
+
+
+    <tr class="table2-2">
+      <th>introduction</th>
+      <td><%= @user.introduction %></td>
+    </tr>
+    </table>
+
+    <div class="d-grid gap-2 col-6">
+    <%= link_to edit_user_path(@user.id),class: "btn btn-outline-secondary", method: :get do %>
+    <i class="fa-solid fa-user-gear fa-lg"></i>
+    <% end %>
+    </div>
+    <h1>Books</h1>
+
+    <h2>Title</h2>
+  <%= form_with model: @book do |f| %>
+
+    <%= f.text_field :title %>
+    <h2>Opinion</h2>
+    <%= f.text_area :body %></br>
+  <%= f.submit 'Create Book', class: "btn btn-success" %>
+  <% end %>
+  </div>
+
+
+
+
+
+<div class="col-md-8 offset-md-1">
+<table class="table">
+
+    <tr>
+      <th class="example">Users</th>
+      <th></th>
+      <th></th>
+    </tr>
+
+
+    <tr>
+      <th class="example2">image</th>
+      <th class="example2">name</th>
+      <th></th>
+    </tr>
+
+<% @users.each do |user| %>
+
+
+
+    <tr class="btn_hover">
+      <th scope="row">
+    <% if user.profile_image.attached? %>
+    <%= image_tag user.profile_image,size:"100x100" %>
+     <% else %>
+    <%= image_tag 'no_image', size:"100x100" %>
+    <% end %>
+
+        <th><%= user.name %></th>
+        <th><%= link_to "show", user_path(user.id) %></th>
+    </tr>
+
+<% end %>
+
+</div>
+</div>
+</table>
+</div>
+
+ <% else %>
+  <h1>f</h1>
+ <% end %>
+
+ 
+
+</html>

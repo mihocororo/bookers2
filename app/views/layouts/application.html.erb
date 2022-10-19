@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>Bookers2</title>
@@ -10,7 +11,105 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+      <% if user_signed_in? %>
+<script src="https://kit.fontawesome.com/f1fbe89ccf.js" crossorigin="anonymous"></script>
+    <header>
+     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+
+  <a class="navbar-brand">Bookers</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <%= link_to user_path(current_user.id), class: "no-underline" do %>
+          <i class="fa-solid fa-house-chimney"></i>Home
+          <% end %>
+
+
+        </li>
+        <li class="nav-item">
+          <%= link_to '/users', class: "no-underline" do %>
+          <i class="fa-solid fa-users"></i>Users
+          <% end %>
+
+
+        <li class="nav-item">
+          <%= link_to books_path, class: "no-underline" do %>
+          <i class="fa-solid fa-book-open"></i>Books
+          <% end %>
+
+        <li class="nav-item2">
+          <%= link_to destroy_user_session_path, method: :delete, class: "no-underline" do %>
+          <i class="fa-solid fa-right-from-bracket"></i>Log Out
+          <% end %>
+        </li>
+    </nav>
+  </div>
+    </header>
+      <% else %>
+      <script src="https://kit.fontawesome.com/f1fbe89ccf.js" crossorigin="anonymous"></script>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <div class="container-fluid">
+
+    <a class="navbar-brand">Bookers</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+
+          <!--<a class="nav-link active" aria-current="page" href="/">Home</a>-->
+        <li class="nav-item">
+          <%= link_to '/', class: "no-underline" do %>
+          <i class="fa-solid fa-house-chimney"></i>Home
+          <% end %>
+
+        </li>
+        <li class="nav-item">
+          <%= link_to "/home/about",class:"no-underline" do %>
+          <i class="fa-sharp fa-solid fa-link"></i>About
+          <% end %>
+
+        </li>
+        <li class="nav-item">
+          <%= link_to "/users/sign_up",class:"no-underline" do %>
+          <i class="fa-solid fa-user-plus"></i>Sign_up
+          <% end %>
+        </li>
+        <li class="nav-item2">
+          <%= link_to "/users/sign_in",class:"no-underline" do %>
+          <i class="fa-solid fa-right-to-bracket"></i>Log In
+          <% end %>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+      <!--<li><%= link_to "Home", '/' %>-->
+        <!--</li>-->
+        <!--<li>-->
+          <!--<%= link_to "About", '/home/about' %>-->
+        <!--</li>-->
+        <!--<li>-->
+          <!--<%= link_to "+Sign Up", new_user_registration_path %>-->
+        <!--</li>-->
+        <!--<li>-->
+          <!--<%= link_to "Log In", new_user_session_path %>-->
+        <!--</li>-->
+    </header>
+
+
+      <% end %>
+
+
     <%= yield %>
-  </body>
+
+
 </html>
