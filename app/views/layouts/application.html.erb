@@ -17,10 +17,14 @@
      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
 
-  <a class="navbar-brand">Bookers</a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+  <a class="navbar-brand">
+    <%= link_to '/', class: "no-underline" do %>Bookers</a>
+    <% end %>
+
       <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
 
@@ -50,13 +54,16 @@
     </nav>
   </div>
     </header>
+    
       <% else %>
       <script src="https://kit.fontawesome.com/f1fbe89ccf.js" crossorigin="anonymous"></script>
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
 
-    <a class="navbar-brand">Bookers</a>
+    <a class="navbar-brand">
+    <%= link_to '/', class: "no-underline" do %>Bookers</a>
+    <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -92,17 +99,7 @@
     </div>
   </div>
 </nav>
-      <!--<li><%= link_to "Home", '/' %>-->
-        <!--</li>-->
-        <!--<li>-->
-          <!--<%= link_to "About", '/home/about' %>-->
-        <!--</li>-->
-        <!--<li>-->
-          <!--<%= link_to "+Sign Up", new_user_registration_path %>-->
-        <!--</li>-->
-        <!--<li>-->
-          <!--<%= link_to "Log In", new_user_session_path %>-->
-        <!--</li>-->
+      
     </header>
 
 

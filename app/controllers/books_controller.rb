@@ -40,18 +40,22 @@ before_action :authenticate_user!
     redirect_to '/books'
   end
 
-  
-  
+
+
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
-    if @book.save 
+    if @book.save
     redirect_to book_path(@book.id)
     else
-    render:new
+      @user = current_user
+      @books = Book.all
+      flash[:notice3]="error prohibited this obj from being saved:"
+    render:index
     end
-    flash[:success2]="You have created book successfully."
     
+    flash[:success2]="You have created book successfully."
+
   end
 
   private
@@ -59,7 +63,7 @@ before_action :authenticate_user!
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  
+
   def ensure_current_user
     @book = Book.find(params[:id])
     if @book.user_id != current_user.id
