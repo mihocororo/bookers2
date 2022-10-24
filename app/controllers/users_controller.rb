@@ -2,30 +2,33 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_current_user,{only: [:edit,:update,:destroy]}
 
+
   def show
     @book = Book.new
     @user = User.find(params[:id])
     @books = @user.books
-
-
-
-
   end
+
+
 
   def new
     @user = User.new(user_params)
     if @user.save
       redirect_to user_path(current_user.id)
     else
-      render.new
+      render "users/sign_up"
     end
       flash[:notice]="Welcome! You have signed up successfully."
+
   end
 
   def edit
-     @user = current_user
+  if @user = current_user
 
     flash[:notice2]="You have updated book successfully."
+  else
+    redirect_to user_path(current_user)
+  end
   end
 
 
@@ -35,8 +38,9 @@ class UsersController < ApplicationController
     @book = Book.new
     @books = Book.all
     @user = current_user
-    # @user = User.find(params[:id])
+
     flash[:success]="Signed in successfully."
+
   end
 
   def update
@@ -44,7 +48,7 @@ class UsersController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       flash[:notice]="You have updated user successfully."
-      redirect_to user_path(current_user)
+      redirect_to user_path(current_user.id)
     else
       render :edit
     end
@@ -57,9 +61,11 @@ class UsersController < ApplicationController
   end
 
   def ensure_current_user
-    @user = User.find(params[:id])
+    @user = current_user
+    # @user = User.find(params[:id])
     if @user.id != current_user.id
       redirect_to user_path(current_user.id)
+
     end
   end
 

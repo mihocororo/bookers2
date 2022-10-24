@@ -47,21 +47,22 @@ html{
     margin-right: 100px;
 }
 
-a{
-    color:white;
-}
+
 
 .no-underline:active{
     color:white;
+    
 }
 
 .no-underline:hover{
     color:silver;
+    text-decoration:none;
 }
 
 
 .nav-item{
     color:white;
+
 }
 
 .social{

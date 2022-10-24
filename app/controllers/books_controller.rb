@@ -17,7 +17,8 @@ before_action :authenticate_user!
   end
 
   def show
-     @user = current_user
+    # @user2 = User.find(params[:id])
+    @user = current_user
      @books = Book.all
      @newbook = Book.new
      @book = Book.find(params[:id])
@@ -25,9 +26,13 @@ before_action :authenticate_user!
 
   def update
     @book = Book.find(params[:id])
-    @book.update(book_params)
+    if @book.update(book_params)
     redirect_to book_path
+
     flash[:notice2]="You have updated book successfully."
+    else
+      render:edit
+    end
   end
 
   def edit
@@ -43,6 +48,7 @@ before_action :authenticate_user!
 
 
   def create
+    @user = current_user
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
@@ -53,7 +59,8 @@ before_action :authenticate_user!
       flash[:notice3]="error prohibited this obj from being saved:"
     render:index
     end
-    
+
+
     flash[:success2]="You have created book successfully."
 
   end

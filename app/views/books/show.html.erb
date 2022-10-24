@@ -2,7 +2,8 @@
 <%= flash[:success2] %>
 <%= flash[:notice2] %>
 <% if user_signed_in? %>
-<div class="container">
+<div class="row">
+<div class="container px-5 px-sm-0r">
   <div class="col-md-3">
     <h2>User info</h2>
 
@@ -12,33 +13,43 @@
 
     <tr>
       <th>name</th>
-      <td><%= @user.name %></td>
+      <td><%= @book.user.name %></td>
     </tr>
 
-  <% if @user.profile_image.attached? %>
-    <%= image_tag @user.profile_image,size:"100x100" %>
+  <% if @book.user.profile_image.attached? %>
+    <%= image_tag @book.user.profile_image,size:"100x100" %>
     <% else %>
     <%= image_tag 'no_image', size:"100x100" %>
     <% end %>
 
     <tr class="table2-2">
       <th>introduction</th>
-      <td><%= @user.introduction %></td>
+      <td><%= @book.user.introduction %></td>
     </tr>
     </table>
 
+    <div class="d-grid gap-2 col-9">
+    <% if @user== current_user.id %>
+
+     <%= link_to edit_user_path(@user.id),class: "btn btn-outline-secondary", method: :get do %>
+    <i class="fa-solid fa-user-gear fa-lg"></i>
+    <% end %>
+    <% else %>
+    <%= link_to user_path(@user.id),class: "btn btn-outline-secondary", method: :get do %>
+    <i class="fa-solid fa-user-gear fa-lg"></i>
+
+    <% end %>
+    <% end %>
+    </div>
 
 
+    <h1>New books</h1>
 
-
-
-    <h1>Books</h1>
-
-    <h2>Title</h2>
+    <h6>Title</h6>
   <%= form_with model: @newbook do |f| %>
 
     <%= f.text_field :title %>
-    <h2>Opinion</h2>
+    <h6>Opinion</h6>
     <%= f.text_area :body %></br>
   <%= f.submit 'Create Book', class: "btn btn-success" %>
 </div>
@@ -51,8 +62,8 @@
  <% else %>
 
  <% end %>
- <div class="col-md-8 offset-md-2">
-<h2>Book Detail</h2>
+ <div class="col-md-8 offset-md-1">
+<h2>Book detail</h2>
 <table class="table">
 
   <tr>
@@ -77,5 +88,6 @@
        <% end %>
 </table>
 
+    </div>
     </div>
     </div>
