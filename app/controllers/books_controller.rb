@@ -17,11 +17,12 @@ before_action :authenticate_user!
   end
 
   def show
-    # @user2 = User.find(params[:id])
+    # @user = User.find(params[:id])
     @user = current_user
      @books = Book.all
      @newbook = Book.new
      @book = Book.find(params[:id])
+
   end
 
   def update

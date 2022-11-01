@@ -2,8 +2,10 @@
 <%= flash[:success2] %>
 <%= flash[:notice2] %>
 <% if user_signed_in? %>
-<div class="row">
-<div class="container px-5 px-sm-0r">
+
+<main>
+<div class="container px-3 px-sm-10">
+  <div class="row">
   <div class="col-md-3">
     <h2>User info</h2>
 
@@ -29,17 +31,15 @@
     </table>
 
     <div class="d-grid gap-2 col-9">
-    <% if @user== current_user.id %>
 
-     <%= link_to edit_user_path(@user.id),class: "btn btn-outline-secondary", method: :get do %>
-    <i class="fa-solid fa-user-gear fa-lg"></i>
-    <% end %>
-    <% else %>
-    <%= link_to user_path(@user.id),class: "btn btn-outline-secondary", method: :get do %>
-    <i class="fa-solid fa-user-gear fa-lg"></i>
 
+
+    <%= link_to edit_user_path(@book.user.id),class: "btn btn-outline-secondary", method: :get do %>
+    <i class="fas fa-user-cog"></i>
     <% end %>
-    <% end %>
+
+
+
     </div>
 
 
@@ -62,6 +62,8 @@
  <% else %>
 
  <% end %>
+
+
  <div class="col-md-8 offset-md-1">
 <h2>Book detail</h2>
 <table class="table">
@@ -69,7 +71,7 @@
   <tr>
       <%= link_to user_path(@book.user_id) do %>
       <th>
-      <% if@book.user.profile_image.attached? %>
+      <% if @book.user.profile_image.attached? %>
       <%= image_tag @book.user.profile_image,size:"100x100" %>
       <% else %>
       <%= image_tag 'no_image', size:"100x100" %>
@@ -87,7 +89,6 @@
   </div>
        <% end %>
 </table>
+</main>
 
-    </div>
-    </div>
     </div>

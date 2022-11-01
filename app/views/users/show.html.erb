@@ -3,8 +3,10 @@
 <%= flash[:notice] %>
 <% if user_signed_in? %>
 <script src=" https://kit.fontawesome.com/f1fbe89ccf.js" crossorigin="anonymous"></script>
-  <div class="container px-5 px-sm-0">
 
+
+    <div class="container px-5 px-sm-0">
+      <div class="row">
     <div class="col-md-3">
 
     <h1>User info</h1>
@@ -35,16 +37,11 @@
     <div class="d-grid gap-2 col-9">
 
 
-    <% if @user== current_user %>
-    <%= link_to edit_user_path(@user.id),class: "btn btn-outline-secondary", method: :get do %>
-    <i class="fa-solid fa-user-gear fa-lg"></i>
-    <% end %>
-    <% else %>
-    <%= link_to user_path(current_user.id),class: "btn btn-outline-secondary", method: :get do %>
-    <i class="fa-solid fa-user-gear fa-lg"></i>
 
+    <%= link_to edit_user_path(@user.id),class: "btn btn-outline-secondary", method: :get do %>
+    <i class="fas fa-user-cog"></i>
     <% end %>
-    <% end %>
+
     </div>
     <h1>New book</h1>
 
@@ -54,11 +51,12 @@
     <%= f.text_field :title %>
     <h6>Opinion</h6>
     <%= f.text_area :body %></br>
-    
-    
+
+
   <%= f.submit 'Create Book', class: "btn btn-success" %>
 
   </div>
+
    <div class="col-md-8 offset-md-1">
 <table class="table">
 

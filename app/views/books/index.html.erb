@@ -9,8 +9,9 @@
         <% end %>
     <% end %>
 <script src="https://kit.fontawesome.com/f1fbe89ccf.js" crossorigin="anonymous"></script>
-  <div class="container">
-    
+
+  <div class="container px-5 px-sm-0">
+  <div class="row">
     <div class="col-md-3">
 
 
@@ -36,7 +37,7 @@
     </table>
     <div class="d-grid gap-2 col-9">
      <%= link_to edit_user_path(@user.id),class: "btn btn-outline-secondary", method: :get do %>
-    <i class="fa-solid fa-user-gear fa-lg"></i>
+    <i class="fas fa-user-cog"></i>
     <% end %>
     </div>
 
@@ -51,6 +52,7 @@
   <%= f.submit 'Create Book', class: "btn btn-success" %>
 
   </div>
+
    <div class="col-md-8 offset-md-1">
 <table class="table">
 
@@ -87,7 +89,7 @@
 </table>
 </div>
 </div>
-</div>
+</div></div>
   <% end %>
 
 

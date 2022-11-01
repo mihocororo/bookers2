@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script src="https://kit.fontawesome.com/f1fbe89ccf.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
 
 
-<script src="https://kit.fontawesome.com/f1fbe89ccf.js" crossorigin="anonymous"></script>
+  <body>
     <header>
      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
@@ -33,25 +33,25 @@
 
         <li class="nav-item">
           <%= link_to user_path(current_user.id), class: "no-underline" do %>
-          <i class="fa-solid fa-house-chimney"></i>Home
+          <i class="fas fa-home"></i>Home
           <% end %>
 
 
         </li>
         <li class="nav-item">
           <%= link_to '/users', class: "no-underline" do %>
-          <i class="fa-solid fa-users"></i>Users
+          <i class="fas fa-users"></i>Users
           <% end %>
 
 
         <li class="nav-item">
           <%= link_to books_path, class: "no-underline" do %>
-          <i class="fa-solid fa-book-open"></i>Books
+          <i class="fas fa-book-open"></i>Books
           <% end %>
 
         <li class="nav-item2">
           <%= link_to destroy_user_session_path, method: :delete, class: "no-underline" do %>
-          <i class="fa-solid fa-right-from-bracket"></i>Log out
+          <i class="fas fa-sign-out-alt"></i>Log out
           <% end %>
         </li>
 
@@ -61,29 +61,29 @@
 
         <li class="nav-item">
           <%= link_to '/', class: "no-underline" do %>
-          <i class="fa-solid fa-house-chimney"></i>Home
+          <i class="fas fa-home"></i>Home
           <% end %>
 
         </li>
         <li class="nav-item">
           <%= link_to "/home/about",class:"no-underline" do %>
-          <i class="fa-sharp fa-solid fa-link"></i>About
+          <i class="fas fa-link"></i>About
           <% end %>
 
         </li>
         <li class="nav-item">
-          <%= link_to "/users/sign_up",class:"no-underline" do %>
-          <i class="fa-solid fa-user-plus"></i>Sign up
+          <%= link_to new_user_registration_path,class:"no-underline" do %>
+          <i class="fas fa-user-plus"></i>Sign up
           <% end %>
         </li>
         <li class="nav-item2">
-          <%= link_to "/users/sign_in",class:"no-underline" do %>
-          <i class="fa-solid fa-right-to-bracket"></i>Log in
+          <%= link_to new_user_session_path,class:"no-underline" do %>
+          <i class="fas fa-sign-in-alt"></i>Log in
           <% end %>
         </li>
       <% end %>
       </ul>
-
+  </div>
   </div>
 </nav>
 
@@ -94,6 +94,6 @@
 
 
     <%= yield %>
-
+</body>
 
 </html>
